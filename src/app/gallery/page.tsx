@@ -5,14 +5,12 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { 
-    fadeInUp, 
     fadeInDown, 
     fadeInLeft, 
     containerVariants, 
     cardVariants, 
     modalVariants, 
     hoverScale, 
-    hoverRotate, 
     textReveal, 
     imageReveal,
     buttonVariants
@@ -139,10 +137,9 @@ const galleryItems: MediaFile[] = [
     }
 ];
 
-export default function GalleryPage({ params }: { params: Promise<any> }) {
+export default function GalleryPage({ params }: { params: any }) {
     const resolvedParams = use(params);
     const [selectedMedia, setSelectedMedia] = useState<MediaFile | null>(null);
-    const [imageError, setImageError] = useState<{ [key: string]: boolean }>({});
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { scrollYProgress } = useScroll();
     const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
@@ -157,10 +154,6 @@ export default function GalleryPage({ params }: { params: Promise<any> }) {
 
     const handleCloseModal = () => {
         setSelectedMedia(null);
-    };
-
-    const handleImageError = (url: string) => {
-        setImageError(prev => ({ ...prev, [url]: true }));
     };
 
     return (
@@ -238,7 +231,6 @@ export default function GalleryPage({ params }: { params: Promise<any> }) {
                                             quality={75}
                                             priority={index < 6}
                                             className="object-cover transition-transform duration-700"
-                                            onError={() => handleImageError(item.url)}
                                         />
                                     ) : (
                                         <video 
@@ -247,7 +239,6 @@ export default function GalleryPage({ params }: { params: Promise<any> }) {
                                             controls
                                             loop
                                             muted
-                                            onError={() => handleImageError(item.url)}
                                         />
                                     )}
                                 </motion.div>
@@ -328,7 +319,6 @@ export default function GalleryPage({ params }: { params: Promise<any> }) {
                                                 quality={90}
                                                 priority
                                                 className="object-contain"
-                                                onError={() => handleImageError(selectedMedia.url)}
                                             />
                                         </motion.div>
                                     ) : (

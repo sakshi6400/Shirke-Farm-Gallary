@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
 import {motion} from 'framer-motion';
 import Link from "next/link";
 import { 
