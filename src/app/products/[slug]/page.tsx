@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+import { useParams } from 'next/navigation';
 
 const productDetails = {
     "fresh-grapes": {
@@ -103,8 +104,10 @@ const productDetails = {
     }
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-    const product = productDetails[params.slug as keyof typeof productDetails];
+export default function ProductPage() {
+    const params = useParams();
+    const slug = params?.slug as string;
+    const product = productDetails[slug as keyof typeof productDetails];
 
     if (!product) {
         return (
