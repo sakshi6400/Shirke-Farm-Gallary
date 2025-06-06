@@ -1,5 +1,5 @@
 ﻿"use client";
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import { FaImage, FaVideo, FaTimes, FaArrowLeft } from 'react-icons/fa';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
@@ -137,7 +137,7 @@ const galleryItems: MediaFile[] = [
     }
 ];
 
-export default function GalleryPage({ params }: { params: { [key: string]: string } }) {
+export default function GalleryPage() {
     const [selectedMedia, setSelectedMedia] = useState<MediaFile | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { scrollYProgress } = useScroll();
