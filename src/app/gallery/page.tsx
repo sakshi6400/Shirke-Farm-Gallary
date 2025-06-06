@@ -137,8 +137,7 @@ const galleryItems: MediaFile[] = [
     }
 ];
 
-export default function GalleryPage({ params }: { params: any }) {
-    const resolvedParams = use(params);
+export default function GalleryPage({ params }: { params: { [key: string]: string } }) {
     const [selectedMedia, setSelectedMedia] = useState<MediaFile | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { scrollYProgress } = useScroll();

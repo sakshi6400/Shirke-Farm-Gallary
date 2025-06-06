@@ -8,7 +8,6 @@ import {
     fadeInUp, 
     fadeInDown, 
     fadeInLeft,
-    textReveal,
     imageReveal
 } from '@/app/utils/animations';
 

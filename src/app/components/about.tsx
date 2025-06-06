@@ -59,7 +59,7 @@ const About = () => {
                                     className="text-lg text-white mt-4"
                                 >
                                     With over 30 years of experience in grape farming, 
-                                    we've built a legacy of excellence in producing high-quality grapes. Our family has been 
+                                    we&apos;ve built a legacy of excellence in producing high-quality grapes. Our family has been 
                                     dedicated to sustainable farming practices since 1990.
                                 </motion.p>
                             </div>
